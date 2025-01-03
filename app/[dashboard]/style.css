@@ -1,0 +1,30 @@
+.active-task {
+  padding: 1rem;
+  width: fit-content;
+  border: 1px solid hsla(0 0 0 / 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.play-pause-button {
+  padding: 1rem;
+  align-content: center;
+  background: hsla(var(--hue) 0 0 / 0.1);
+  color: hsla(var(--hue) 80 35 / 1);
+  border: none;
+  border-radius: 999px;
+  line-height: 1;
+}
+
+.play-pause-button svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.active-task .time {
+  margin-top: 1rem;
+  color: hsla(var(--hue) 80 35 / 1);
+  font-size: 1.25rem;
+  font-weight: 500;
+}
