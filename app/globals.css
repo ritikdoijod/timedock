@@ -1,3 +1,76 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-primary: var(--color-sky-500);
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@utility page {
+  @apply size-full;
+}
+
+@utility card {
+  @apply p-10 outline outline-gray-200 rounded-lg shadow-xs;
+}
+
+@utility separator {
+  @apply my-8 text-center text-gray-600 flex gap-2 bg-inherit items-center;
+
+  &::before,
+  &::after {
+    content: "";
+
+    @apply bg-gray-200 flex-1 h-[2px] block;
+  }
+}
+
+@layer utilities {
+  html,
+  body {
+    widht: 100dvw;
+    height: 100dvh;
+  }
+}
+
+@layer components {
+  h1 {
+    @apply font-black text-2xl text-gray-700;
+  }
+
+  p {
+    @apply text-center text-sm/6 text-gray-500;
+  }
+
+  a {
+    @apply text-primary hover:text-primary underline italic;
+  }
+
+  label {
+    @apply block text-sm/10 font-normal text-gray-600;
+  }
+
+  input {
+    @apply px-3 py-2 text-sm rounded-lg outline outline-gray-200 transition-all duration-500 hover:outline-primary focus-within:outline-primary;
+  }
+
+  button {
+    @apply py-2 px-3 bg-primary text-white font-medium cursor-pointer rounded-lg;
+  }
+}
